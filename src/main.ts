@@ -35,15 +35,17 @@ else if (typeof data === 'number') {
 else if (Array.isArray(data)) {
   console.log(data.length);
 
-} else if (data instanceof Promise) {
+} else if (data === null) {
+  console.log('Il dato è vuoto')
+}
+else if (data instanceof Promise) {
 
   data.then(res => console.log(res))
     .catch(error => console.error(error))
-
 }
 
 else {
-  console.log('Il dato è vuoto')
+  console.log('Tipo non supportato')
 }
 
 // Snack 2
@@ -148,7 +150,7 @@ type Team = {
   nome: string,
   progettoAttuale: string | null,
   budget: number,
-  membri: [ProjectManager, ...Developer[]]
+  membri: [ProjectManager, Developer, ...Developer[]]
 }
 
 
